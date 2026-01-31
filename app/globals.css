@@ -1,13 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 1. DEFINE CUSTOM THEME BREAKPOINTS */
-/* This fixes the 'xlg' errors you were likely seeing */
-@theme {
-  --breakpoint-xlg: 1150px;
-  --color-dark: #1a1a1a;
-}
-
-/* 2. BASE STYLES */
+/* =========================
+   1. BASE STYLES
+========================= */
 @layer base {
   h1 {
     @apply text-[28px] lg:text-[36px] xl:text-[40px] 2xl:text-[64px] leading-[1.1] sm:leading-tight;
@@ -19,20 +16,20 @@
   }
 
   h3 {
-    @apply text-2xl lg:text-2xl xlg:text-3xl 2xl:text-[32px] md:leading-snug lg:leading-snug 2xl:leading-snug;
+    @apply text-2xl lg:text-2xl xlg:text-3xl 2xl:text-[32px] leading-snug;
   }
 
   h4 {
-    @apply text-lg lg:text-xl xlg:text-2xl 2xl:text-[28px] leading-tight md:leading-snug lg:leading-snug 2xl:leading-snug;
+    @apply text-lg lg:text-xl xlg:text-2xl 2xl:text-[28px] leading-snug;
   }
 
   h5 {
-    @apply text-base lg:text-lg 2xl:text-2xl leading-tight md:leading-tight lg:leading-tight 2xl:leading-tight;
+    @apply text-base lg:text-lg 2xl:text-2xl leading-tight;
   }
 
   h6,
   p {
-    @apply text-base xl:text-base xlg:text-base 2xl:text-xl leading-tight md:leading-tight lg:leading-tight 2xl:leading-tight;
+    @apply text-base xl:text-base xlg:text-base 2xl:text-xl leading-tight;
   }
 
   .text-mega {
@@ -44,7 +41,7 @@
   }
 
   .text-40 {
-    @apply text-[28px] lg:text-2xl xlg:text-[30px] 2xl:text-[40px] md:leading-snug lg:leading-snug 2xl:leading-snug leading-9;
+    @apply text-[28px] lg:text-2xl xlg:text-[30px] 2xl:text-[40px] leading-snug;
   }
 
   br {
@@ -52,10 +49,12 @@
   }
 }
 
-/* 3. COMPONENT UTILITIES */
+/* =========================
+   2. UTILITIES
+========================= */
 @layer utilities {
   .d {
-    @apply border-2 border-[#ff0000] border-solid;
+    @apply border-2 border-red-500;
   }
 
   /* Padding Blades */
@@ -97,7 +96,7 @@
   }
 
   .blade-bottom-margin {
-    @apply mb-8 md:mb-10 lg:mb-12 xl:mb-16 2xl:mt-20;
+    @apply mb-8 md:mb-10 lg:mb-12 xl:mb-16 2xl:mb-20;
   }
   .blade-bottom-margin-sm {
     @apply mb-4 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-14;
@@ -108,37 +107,38 @@
 
   /* Containers */
   .w-container-xs {
-    @apply max-w-screen-xl mx-auto w-11/12 lg:w-8/12 sm:px-3;
+    @apply max-w-screen-xl mx-auto w-11/12 lg:w-8/12 px-3;
   }
   .w-container-sm {
-    @apply max-w-screen-2xl mx-auto w-11/12 lg:w-10/12 xl:w-[70%] sm:px-3;
+    @apply max-w-screen-2xl mx-auto w-11/12 lg:w-10/12 xl:w-[70%] px-3;
   }
   .w-container {
     @apply max-w-screen-2xl mx-auto lg:w-11/12 px-3;
   }
   .w-container-lg {
-    @apply md:w-11/12 px-3 max-w-screen-2xl mx-auto;
+    @apply max-w-screen-2xl mx-auto md:w-11/12 px-3;
   }
   .w-container-xl {
-    @apply md:w-11/12 px-3 xl:px-16 2xl:px-20 max-w-[1920px] mx-auto;
+    @apply max-w-[1920px] mx-auto md:w-11/12 px-3 xl:px-16 2xl:px-20;
   }
 
   .text-big {
-    @apply 2xl:text-8xl xl:text-7xl text-4xl;
+    @apply text-4xl xl:text-7xl 2xl:text-8xl;
   }
 
   /* Inputs */
   .input-style {
-    @apply bg-transparent 2xl:text-lg xlg:text-sm text-[12px] placeholder:text-dark focus:outline-none font-normal border-b border-[#3A3D45] w-full xlg:py-3 py-2;
+    @apply bg-transparent text-[12px] xlg:text-sm 2xl:text-lg placeholder:text-dark border-b border-[#3A3D45] w-full py-2 xlg:py-3 focus:outline-none;
   }
 
   .input-style-light {
-    /* Use the slash syntax for opacity instead of text-opacity-70 */
-    @apply bg-transparent 2xl:text-lg xlg:text-sm text-[12px] placeholder:opacity-90 focus:outline-none font-normal text-white/70 border-b border-[#3A3D45] w-full xlg:py-2 py-2;
+    @apply bg-transparent text-[12px] xlg:text-sm 2xl:text-lg text-white/70 placeholder:text-white/90 border-b border-[#3A3D45] w-full py-2 focus:outline-none;
   }
 }
 
-/* 4. CUSTOM SCROLLBAR & VENDOR STYLES */
+/* =========================
+   3. SCROLLBAR & VENDOR
+========================= */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
